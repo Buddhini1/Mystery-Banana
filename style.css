@@ -1,0 +1,159 @@
+
+body {
+    font-family: 'Baloo 2', cursive;
+    background: url('assets/images/jungle-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+    color: rgb(10, 10, 10);
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+
+/* === GAME TITLE === */
+h1 {
+    font-size: 40px;
+    margin-top: 5px;
+    color: #d89311;
+    text-shadow: 4px 4px #edf041;
+}
+
+/* === GAME CONTAINER === */
+.game-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(245, 241, 241, 0.5);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* === MONKEY CHARACTER === */
+.monkey-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+#monkey {
+    width: 120px;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* === PUZZLE IMAGE (LEFT SIDE) === */
+.puzzle-container {
+    flex: 1;
+}
+
+.puzzle-container img {
+    width: 480px;
+    height: 270px;
+    border: 2px solid #adaaaa;
+    border-radius: 10px;
+    transition: opacity 0.3s ease;
+}
+
+/* === TIMER === */
+#timer {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fdfdfd;
+    background: rgba(27, 27, 27, 0.8);
+    padding: 3px 15px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: px;
+}
+
+#timer-message {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000; 
+}
+
+#timer-message img {
+    width: 40px;  /* Adjust width */
+    height: 40px; /* Adjust height */
+    vertical-align: middle; /* Align with text */
+    border: none;
+    margin-right: 5px;
+}
+
+/* === NUMBER BUTTONS (RIGHT SIDE) === */
+.number-buttons {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    justify-content: center;
+}
+
+.num-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 22px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #9f78dd, #975bc0);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.num-btn:hover {
+    background: linear-gradient(135deg, #7050c7, #917deb);
+    transform: scale(1.1);
+}
+
+/* === FEEDBACK MESSAGE === */
+#feedback {
+    font-size: 28px;
+    color: #0a4d15;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* === MONKEY ANIMATIONS === */
+.jump {
+    animation: jump 0.6s ease-in-out;
+}
+
+@keyframes jump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+}
+
+#select-text {
+    font-size: 30px;
+    font-weight: bold;
+    color: #0c0c0c; /* Bright yellow */
+    margin-bottom: 10px;
+    display: inline-block;
+    padding: 8px 2px;
+    border-radius: 10px;
+    animation: bounce 1.2s infinite alternate;
+}
+
+/* Fun Bouncing Animation */
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+}
+
