@@ -1,21 +1,23 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap');
+/* === Import Cartoonish Font === */
 body {
     font-family: 'Baloo 2', cursive;
-    background: url('assets/images/jungle-bg.jpg') no-repeat center center fixed;
+    background: url('images/jungle-bg.jpg') no-repeat center center fixed;
     background-size: cover;
     text-align: center;
-    color: rgb(10, 10, 10);
+    color: rgb(223, 223, 223);
     padding: 0;
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 /* === GAME TITLE === */
 h1 {
-    font-size: 40px;
+    font-size: 50px;
     margin-top: 5px;
-    color: #d89311;
-    text-shadow: 4px 4px #edf041;
+    margin-bottom: 0px;
+    color: #ffeb3b;
+    text-shadow: 4px 4px #ff9800;
 }
 
 /* === GAME CONTAINER === */
@@ -23,10 +25,11 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
-    max-width: 1100px;
-    margin: 50px auto;
-    padding: 20px;
+    width: 70%;
+    height: 40%;
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 15px;
     background: rgba(245, 241, 241, 0.5);
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
@@ -36,11 +39,11 @@ h1 {
 .monkey-container {
     display: flex;
     justify-content: center;
-    margin-top: 5px;
+    margin-top: 0px;
 }
 
 #monkey {
-    width: 120px;
+    width: 110px;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -50,34 +53,36 @@ h1 {
 }
 
 .puzzle-container img {
-    width: 480px;
-    height: 270px;
-    border: 2px solid #adaaaa;
+    width: 410px;
+    height: 240px;
+    border: 2px solid #bb7f26;
     border-radius: 10px;
     transition: opacity 0.3s ease;
 }
 
 /* === TIMER === */
 #timer {
-    font-size: 20px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 17px;
     font-weight: bold;
-    color: #fdfdfd;
-    background: rgba(27, 27, 27, 0.8);
-    padding: 3px 15px;
+    color: #ffeb3b;
+    background: rgba(255, 87, 34, 0.8);
+    padding: 4px 12px;
     border-radius: 10px;
     display: inline-block;
-    margin-top: px;
+    margin-top: 0px;
 }
 
 #timer-message {
-    font-size: 20px;
+    font-size: 17px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     font-weight: bold;
-    color: #000000; 
+    color: #e73737;
 }
 
 #timer-message img {
-    width: 40px;  /* Adjust width */
-    height: 40px; /* Adjust height */
+    width: 30px;  /* Adjust width */
+    height: 30px; /* Adjust height */
     vertical-align: middle; /* Align with text */
     border: none;
     margin-right: 5px;
@@ -88,14 +93,13 @@ h1 {
     flex: 1;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
+    gap: 6px;
     justify-content: center;
 }
-
 .num-btn {
-    width: 60px;
-    height: 60px;
-    font-size: 22px;
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
     font-weight: bold;
     background: linear-gradient(135deg, #9f78dd, #975bc0);
     color: white;
@@ -107,14 +111,15 @@ h1 {
 }
 
 .num-btn:hover {
-    background: linear-gradient(135deg, #7050c7, #917deb);
+    background: linear-gradient(135deg, #51369c, #917deb);
     transform: scale(1.1);
 }
 
 /* === FEEDBACK MESSAGE === */
 #feedback {
-    font-size: 28px;
-    color: #0a4d15;
+    font-size: 24px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #000000;
     font-weight: bold;
     margin-top: 15px;
 }
@@ -141,11 +146,14 @@ h1 {
 }
 
 #select-text {
-    font-size: 30px;
+    font-size: 22px;
     font-weight: bold;
-    color: #0c0c0c; /* Bright yellow */
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #e0cd1c; /* Bright yellow */
+    text-shadow: 2px 2px #ff9800; /* Orange shadow for better visibility */
     margin-bottom: 10px;
     display: inline-block;
+    background: rgba(37, 22, 104, 0.5); /* Slight dark background */
     padding: 8px 2px;
     border-radius: 10px;
     animation: bounce 1.2s infinite alternate;
@@ -157,3 +165,108 @@ h1 {
     100% { transform: translateY(-5px); }
 }
 
+.lives-container {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    background: rgba(250, 250, 250, 0.2);
+    padding: 2px 15px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+#lives-count {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* === RESPONSIVE DESIGN === */
+
+/* Tablet view */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 50px;
+    }
+
+    .game-container {
+        flex-direction: column;
+        width: 90%;
+        padding: 15px;
+    }
+
+    .puzzle-container img {
+        width: 100%;
+        height: auto;
+    }
+
+    .number-buttons {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .num-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 18px;
+    }
+
+    #feedback {
+        font-size: 24px;
+    }
+
+    #select-text {
+        font-size: 26px;
+    }
+
+    #timer-message {
+        font-size: 20px;
+    }
+
+    .lives-container {
+        font-size: 22px;
+    }
+}
+
+/* Mobile view */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    .game-container {
+        flex-direction: column;
+        width: 90%;
+        padding: 10px;
+    }
+
+    .puzzle-container img {
+        width: 100%;
+        height: auto;
+    }
+
+    .number-buttons {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .num-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    #feedback {
+        font-size: 20px;
+    }
+
+    #select-text {
+        font-size: 22px;
+    }
+
+    #timer-message {
+        font-size: 18px;
+    }
+
+    .lives-container {
+        font-size: 20px;
+    }
+}
