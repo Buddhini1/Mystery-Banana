@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap');
+/* === Import Cartoonish Font === */
+body {
+    font-family: 'Baloo 2', cursive;
+    background: url('images/jungle-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+    color: rgb(223, 223, 223);
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* === GAME TITLE === */
+h1 {
+    font-size: 50px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    color: #ffeb3b;
+    text-shadow: 4px 4px #ff9800;
+}
+
+/* === GAME CONTAINER === */
+.game-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    height: 40%;
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 15px;
+    background: rgba(245, 241, 241, 0.5);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* === MONKEY CHARACTER === */
+.monkey-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+}
+
+#monkey {
+    width: 110px;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* === PUZZLE IMAGE (LEFT SIDE) === */
+.puzzle-container {
+    flex: 1;
+}
+
+.puzzle-container img {
+    width: 410px;
+    height: 240px;
+    border: 2px solid #bb7f26;
+    border-radius: 10px;
+    transition: opacity 0.3s ease;
+}
+
+/* === TIMER === */
+#timer {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffeb3b;
+    background: rgba(255, 87, 34, 0.8);
+    padding: 4px 12px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 0px;
+}
+
+#timer-message {
+    font-size: 17px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-weight: bold;
+    color: #e73737;
+}
+
+#timer-message img {
+    width: 30px;  /* Adjust width */
+    height: 30px; /* Adjust height */
+    vertical-align: middle; /* Align with text */
+    border: none;
+    margin-right: 5px;
+}
+
+/* === NUMBER BUTTONS (RIGHT SIDE) === */
+.number-buttons {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    justify-content: center;
+}
+.num-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #9f78dd, #975bc0);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.num-btn:hover {
+    background: linear-gradient(135deg, #51369c, #917deb);
+    transform: scale(1.1);
+}
+
+/* === FEEDBACK MESSAGE === */
+#feedback {
+    font-size: 24px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #000000;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* === MONKEY ANIMATIONS === */
+.jump {
+    animation: jump 0.6s ease-in-out;
+}
+
+@keyframes jump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+}
+
+#select-text {
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #e0cd1c; /* Bright yellow */
+    text-shadow: 2px 2px #ff9800; /* Orange shadow for better visibility */
+    margin-bottom: 10px;
+    display: inline-block;
+    background: rgba(37, 22, 104, 0.5); /* Slight dark background */
+    padding: 8px 2px;
+    border-radius: 10px;
+    animation: bounce 1.2s infinite alternate;
+}
+
+/* Fun Bouncing Animation */
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+}
+
+.lives-container {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    background: rgba(250, 250, 250, 0.2);
+    padding: 2px 15px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+#lives-count {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* === RESPONSIVE DESIGN === */
+
+/* Tablet view */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 50px;
+    }
+
+    .game-container {
+        flex-direction: column;
+        width: 90%;
+        padding: 15px;
+    }
+
+    .puzzle-container img {
+        width: 100%;
+        height: auto;
+    }
+
+    .number-buttons {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .num-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 18px;
+    }
+
+    #feedback {
+        font-size: 24px;
+    }
+
+    #select-text {
+        font-size: 26px;
+    }
+
+    #timer-message {
+        font-size: 20px;
+    }
+
+    .lives-container {
+        font-size: 22px;
+    }
+}
+
+/* Mobile view */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    .game-container {
+        flex-direction: column;
+        width: 90%;
+        padding: 10px;
+    }
+
+    .puzzle-container img {
+        width: 100%;
+        height: auto;
+    }
+
+    .number-buttons {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .num-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    #feedback {
+        font-size: 20px;
+    }
+
+    #select-text {
+        font-size: 22px;
+    }
+
+    #timer-message {
+        font-size: 18px;
+    }
+
+    .lives-container {
+        font-size: 20px;
+    }
+}
