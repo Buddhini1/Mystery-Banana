@@ -1,0 +1,31 @@
+<!-- Updated levels.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Level - Banana Quest</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="level-container">
+        <h1>Select Your Level</h1>
+
+        <button onclick="startGame('easy')">🍃 Easy</button>
+        <button onclick="startGame('medium')">🔥 Medium</button>
+        <button onclick="startGame('hard')">💀 Hard</button>
+
+        <button onclick="goBack()">⬅ Back to Dashboard</button>
+    </div>
+
+    <script>
+        function startGame(level) {
+            window.location.href = `game/game-${level}.html`; // Redirect to the selected game level inside the game folder
+        }
+
+        function goBack() {
+            window.location.href = "dashboard.html"; // Back to the dashboard
+        }
+    </script>
+</body>
+</html>
