@@ -1,11 +1,12 @@
+<!-- register.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Mystery Banana Game</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="cs/reg.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reg.css">
 </head>
 <body>
     <div class="register-container">
@@ -20,11 +21,14 @@
             <label for="password">Password:</label>
             <input type="password" id="register-password" required>
             
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" required>
+            
             <button type="submit">Register</button>
         </form>
-        <p>Already have an account? <a href="index.html">Login here</a></p>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/reg.js"></script>
 </body>
 </html>
