@@ -24,9 +24,9 @@
         <div id="lives-container"></div> 
     </div>
 
-    <!-- Game Content -->
+    <!-- Game Content (Event-Driven) -->
     <div class="game-container">
-        <!-- Left Side: Puzzle Image -->
+        <!-- Puzzle with timer -->
         <div class="puzzle-container">
             <img id="puzzle-image" src="" alt="Puzzle loading...">
             <p id="timer-message">
@@ -53,7 +53,6 @@
                 </div>
             </div>
             <div class="back-home-container">
-                <!-- Back to Restart Button -->
                 <button id="restart-btn" onclick="restartGame()">🔄 Restart</button>
                 <!-- Back to Home Button -->
                 <button class="back-home-btn" onclick="goBackToDashboard()">Back to Home</button>
@@ -65,8 +64,7 @@
     <script>
         function goBackToDashboard() {
     if (!gameOver) {
-        // If the game is still active, update the score in the database
-        updateScoreInDB();
+        updateScoreInDB();// INTEROPERABILITY: Score update API call
         
         // Delay redirection slightly to ensure the score update request is sent
         setTimeout(() => {
