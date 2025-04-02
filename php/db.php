@@ -1,7 +1,9 @@
 <?php
+
+// Database configuration settings
 $host = "localhost";
-$user = "root";  // Change this if you have a different username
-$password = "";  // Change if you set a MySQL password
+$user = "root";  
+$password = "";  
 $database = "banana_game";
 
 $conn = new mysqli($host, $user, $password, $database);

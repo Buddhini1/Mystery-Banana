@@ -12,7 +12,7 @@ $query = "SELECT user.id, user.name, user_scores.score
 
 $result = $conn->query($query);
 
-// Check for errors
+// Error Handling 
 if (!$result) {
     echo json_encode(["status" => "error", "message" => "Error fetching leaderboard data."]);
     exit();
@@ -27,6 +27,7 @@ while ($row = $result->fetch_assoc()) {
     ];
 }
 
+// INTEROPERABILITY: Final JSON output
 echo json_encode($leaderboard);
 
 $conn->close();

@@ -10,6 +10,7 @@
     <div class="level-container">
         <h1>Select Your Level</h1>
 
+         <!-- Difficulty Level Selection (Event-Driven Programming) -->
         <button id="easyBtn" onclick="startGame('easy')">🍃 Easy</button>
         <button id="mediumBtn" onclick="startGame('medium')">🔥 Medium</button>
         <button id="hardBtn" onclick="startGame('hard')">💀 Hard</button>
@@ -38,14 +39,17 @@
                     window.location.href = 'login.html'; // Redirect to login on error
                 });
         }
+
         // Start the game with the selected level
         function startGame(level) {
             window.location.href = `game/game-${level}.html`; // Redirect to the selected game level inside the game folder
         }
+
         // Go back to the dashboard
         function goBack() {
             window.location.href = "dashboard.html"; // Back to the dashboard
         }
+
         // Call session check when the page loads
         window.onload = checkUserSession;
     </script>

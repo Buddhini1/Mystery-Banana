@@ -17,7 +17,7 @@
             <p><strong>Score:</strong> <span id="playerScore">Loading...</span></p>
         </div>
 
-        <!-- Dashboard Buttons -->
+        <!--EVENT-DRIVEN:Dashboard Buttons -->
         <div class="dashboard-buttons">
             <button id="startGameBtn">▶ Start Game</button>
             <button id="leaderboardBtn">🏆 View Leaderboard</button>
@@ -27,10 +27,11 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Fetch session data to update player's name
+            // INTEROPERABILITY: Fetch session data to update player's name
             fetch("php/check_session.php")
                 .then(response => response.json())
                 .then(data => {
+                    // Virtual Identity:Check the session data to maintain the player's identity throughout the game
                     if (data.status === "success") {
                         document.getElementById("playerName").textContent = data.name;
                         fetchUserScore(data.user_id);  // Fetch the user's score
@@ -45,12 +46,13 @@
                     window.location.href = "login.html";
                 });
 
-            // Event listeners for buttons
+            // EVENT-DRIVEN:Event listeners for buttons
             document.getElementById("startGameBtn").addEventListener("click", () => window.location.href = "levels.html");
             document.getElementById("leaderboardBtn").addEventListener("click", () => window.location.href = "leaderboard.html");
             document.getElementById("logoutBtn").addEventListener("click", logout);
         });
 
+         // INTEROPERABILITY: Score fetching function
         function fetchUserScore(userId) {
             fetch(`php/get_score.php?user_id=${userId}`)
                 .then(response => response.json())
@@ -64,6 +66,7 @@
                 .catch(error => console.error("Error fetching score:", error));
         }
 
+        // VIRTUAL IDENTITY & EVENT-DRIVEN: Logout functionality
         function logout() {
             fetch("php/logout.php").then(() => {
                 window.location.href = "login.html";

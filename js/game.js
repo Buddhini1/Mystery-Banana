@@ -9,7 +9,7 @@ let userId = null;
 // Select monkey element
 const monkey = document.getElementById("monkey");
 
-// Fetch user session
+// Fetch user session from the backend
 function fetchUserSession() {
     return fetch("../php/check_session.php")
         .then(response => response.json())
@@ -21,13 +21,14 @@ function fetchUserSession() {
                 window.location.href = "../login.html";
             }
         })
-        .catch(error => console.error("Session fetch error:", error));
+        .catch(error => console.error("Session fetch error:", error)); // Log any session errors
 }
 
 // Fetch a new puzzle
 function fetchPuzzle() {
-    if (gameOver) return;
-    fetch("https://marcconrad.com/uob/banana/api.php")
+    if (gameOver) return; // Stop fetching if game is over
+
+    fetch("https://marcconrad.com/uob/banana/api.php") // External API to get new puzzle
         .then(response => response.json())
         .then(data => {
             document.getElementById("puzzle-image").src = data.question;
@@ -48,7 +49,7 @@ function updateLives() {
     const livesContainer = document.getElementById("lives-container");
     livesContainer.innerHTML = '';
     for (let i = 0; i < 3; i++) {
-        const heartIcon = document.createElement("i");
+        const heartIcon = document.createElement("i"); // Create a heart icon
         heartIcon.classList.add("fas", i < lives ? "fa-heart" : "fa-heart-broken", "heart-icon");
         livesContainer.appendChild(heartIcon);
     }
@@ -66,7 +67,7 @@ function updateScoreInDB() {
         return;
     }
 
-    fetch("../php/update_score.php", {
+    fetch("../php/update_score.php", { // Send updated score to the database via PHP
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user_id: userId, score: score })
@@ -80,13 +81,13 @@ function updateScoreInDB() {
     .catch(error => console.error("Score update request failed:", error));
 }
 
-// ✅ Monkey Jump Animation Function
+// Monkey Jump Animation
 function monkeyJump() {
     monkey.classList.add("jump");
     setTimeout(() => monkey.classList.remove("jump"), 600); // Remove class after animation
 }
 
-// ✅ Monkey Shake Animation Function
+// Monkey Shake Animation
 function monkeyShake() {
     monkey.classList.add("shake");
     setTimeout(() => monkey.classList.remove("shake"), 500); // Remove class after animation
@@ -111,18 +112,16 @@ function handleAnswerClick(event) {
             startTimer(30); // Restart the timer for the new puzzle
         }, 2000); // Wait for 2 seconds to show the correct feedback before loading the next puzzle
     } else {
-        lives--;
+        lives--;  // Reduce lives if answer is incorrect
         updateLives();
-        
-        // ✅ Monkey shakes when wrong
-        monkeyShake();
+        monkeyShake(); // Monkey shakes when wrong
 
         if (lives === 0) {
             gameOver = true;
             document.getElementById("feedback").textContent = "💀 Game Over!";
-            updateScoreInDB();
+            updateScoreInDB(); // Send the final score to the database
             document.getElementById("restart-btn").style.display = "block";
-            clearInterval(timerInterval); // Stop the timer when the game is over
+            clearInterval(timerInterval); // Stop the timer when game over
         } else {
             document.getElementById("feedback").textContent = "❌ Wrong! Try again.";
         }
@@ -149,7 +148,7 @@ function startTimer(seconds) {
 
     // Start countdown
     if (timerInterval) {
-        clearInterval(timerInterval); // Clear any existing timer
+        clearInterval(timerInterval); // Clear existing timer
     }
 
     timerInterval = setInterval(() => {
@@ -164,7 +163,6 @@ function startTimer(seconds) {
             // Generate the next puzzle
             fetchPuzzle();
             
-            // Restart the timer for the next puzzle
             startTimer(30); // Restart the timer for 30 seconds
         }
     }, 1000);
@@ -181,11 +179,13 @@ function initializeGame() {
         fetchPuzzle();
         updateLives();
 
+        // Attach event listeners to answer buttons
         document.querySelectorAll(".num-btn").forEach(button => {
             button.removeEventListener("click", handleAnswerClick);
             button.addEventListener("click", handleAnswerClick);
         });
 
+        // Attach event listener to restart button
         const restartBtn = document.getElementById("restart-btn");
         if (restartBtn) {
             restartBtn.removeEventListener("click", restartGame);

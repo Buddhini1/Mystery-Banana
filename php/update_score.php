@@ -1,5 +1,5 @@
 <?php
-include 'db.php';  // Connect to database
+include 'db.php';  
 
 header("Content-Type: application/json");
 
@@ -15,6 +15,7 @@ if (!isset($user_id) || !isset($score)) {
 // Check if user already has a score entry
 $check_query = "SELECT score FROM user_scores WHERE user_id = ?";
 $stmt = $conn->prepare($check_query);
+// SECURITY: Parameter binding to prevent SQL injection
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -30,8 +31,6 @@ if ($result->num_rows > 0) {
     $stmt = $conn->prepare($insert_query);
     $stmt->bind_param("ii", $user_id, $score);
 }
-
-
 
 if ($stmt->execute()) {
     echo json_encode(["status" => "success", "message" => "Score updated."]);
