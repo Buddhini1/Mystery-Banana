@@ -71,10 +71,19 @@
     <script src="game.js"></script>
     <script>
         function goBackToDashboard() {
-            setTimeout(() => {
-                window.location.href = "../dashboard.html";
-            }, 500);
-        }
+    if (!gameOver) {
+        // If the game is still active, update the score in the database
+        updateScoreInDB();
+        
+        // Delay redirection slightly to ensure the score update request is sent
+        setTimeout(() => {
+            window.location.href = "../dashboard.html";
+        }, 500); // Wait for 500ms before redirecting
+    } else {
+        // If game is over, just redirect without updating score
+        window.location.href = "../dashboard.html";
+    }
+}
     </script>
 </body>
 </html>
