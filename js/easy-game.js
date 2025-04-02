@@ -2,8 +2,6 @@ let currentSolution = null;
 let lives = 3;
 let score = 0;
 let gameOver = false;
-let timerInterval = null;
-let timeRemaining = 30; // Default 30 seconds for both levels
 let userId = null;
 
 // Fetch user session
@@ -29,14 +27,14 @@ function fetchPuzzle() {
         .then(data => {
             document.getElementById("puzzle-image").src = data.question;
             currentSolution = data.solution;
+            resetMonkeyAnimation(); // Reset animations for new puzzle
         })
         .catch(error => console.error("Puzzle fetch error:", error));
 }
 
-// ✅ Fix: Ensure the skip button exists before accessing it
+// Skip puzzle
 function skipPuzzle() {
     if (gameOver) return;
-    startTimer(30); // Restart the timer from 30 seconds
     fetchPuzzle();
 }
 
@@ -63,7 +61,7 @@ function updateScoreInDB() {
         return;
     }
 
-    fetch("update_score.php", {
+    fetch("../php/update_score.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user_id: userId, score: score })
@@ -82,28 +80,40 @@ function handleAnswerClick(event) {
     if (gameOver) return;
 
     let userAnswer = parseInt(event.target.textContent);
+    let monkey = document.getElementById("monkey");
 
     if (userAnswer === currentSolution) {
         document.getElementById("feedback").textContent = "🎉 Correct!";
         score += 10;
         updateScoreDisplay();
+        monkey.classList.add("jump"); // Monkey jumps 🎉
+
         setTimeout(() => {
-            fetchPuzzle();  // Fetch a new puzzle after correct answer
-            startTimer(30); // Restart the timer for the new puzzle
-        }, 2000); // Wait for 2 seconds to show the correct feedback before loading the next puzzle
+            fetchPuzzle();
+        }, 2000);
     } else {
         lives--;
         updateLives();
+        monkey.classList.add("shake"); // Monkey shakes ❌
+
         if (lives === 0) {
             gameOver = true;
             document.getElementById("feedback").textContent = "💀 Game Over!";
             updateScoreInDB();
             document.getElementById("restart-btn").style.display = "block";
-            clearInterval(timerInterval); // Stop the timer when the game is over
         } else {
             document.getElementById("feedback").textContent = "❌ Wrong! Try again.";
         }
     }
+
+    // Remove animation class after it plays to allow re-triggering
+    setTimeout(resetMonkeyAnimation, 1000);
+}
+
+// Reset animations
+function resetMonkeyAnimation() {
+    let monkey = document.getElementById("monkey");
+    monkey.classList.remove("jump", "shake");
 }
 
 // Restart the game
@@ -116,45 +126,11 @@ function restartGame() {
     document.getElementById("feedback").textContent = "";
     document.getElementById("restart-btn").style.display = "none";
     fetchPuzzle();
-    startTimer(30); // Start the timer again
 }
 
-// Timer function (works with existing HTML timer)
-function startTimer(seconds) {
-    timeRemaining = seconds;
-    document.getElementById("timer").textContent = timeRemaining; // Display the initial time in the timer element
-
-    // Start countdown
-    if (timerInterval) {
-        clearInterval(timerInterval); // Clear any existing timer
-    }
-
-    timerInterval = setInterval(() => {
-        timeRemaining--;
-        document.getElementById("timer").textContent = timeRemaining; // Update the timer text
-
-        // If time runs out
-        if (timeRemaining <= 0) {
-            clearInterval(timerInterval); // Stop the timer
-            document.getElementById("feedback").textContent = "💀 Time's Up! Next Puzzle";
-
-            // Generate the next puzzle
-            fetchPuzzle();
-            
-            // Restart the timer for the next puzzle
-            startTimer(30); // Restart the timer for 30 seconds
-        }
-    }, 1000);
-}
-
-// Initialize the game based on the current page
+// Initialize game
 function initializeGame() {
     fetchUserSession().then(() => {
-        const currentPage = window.location.pathname.split('/').pop();
-
-        // Set 30 seconds timer for both pages (medium and hard levels)
-        startTimer(30); 
-
         fetchPuzzle();
         updateLives();
 
@@ -163,13 +139,10 @@ function initializeGame() {
             button.addEventListener("click", handleAnswerClick);
         });
 
-        const restartBtn = document.getElementById("restart-btn");
-        if (restartBtn) {
-            restartBtn.removeEventListener("click", restartGame);
-            restartBtn.addEventListener("click", restartGame);
-        }
+        document.getElementById("skip-btn")?.addEventListener("click", skipPuzzle);
+        document.getElementById("restart-btn")?.addEventListener("click", restartGame);
     });
 }
 
-// Ensure script loads after the DOM is ready
+// Ensure script loads after DOM is ready
 document.addEventListener("DOMContentLoaded", initializeGame);

@@ -2,7 +2,7 @@
 /* === Import Cartoonish Font === */
 body {
     font-family: 'Baloo 2', cursive;
-    background: url('../assets/images/jungle-bg.jpg') no-repeat center center fixed;
+    background: url('../images/bg.jpg') no-repeat center center fixed;
     background-size: cover;
     text-align: center;
     color: rgb(223, 223, 223);
@@ -30,7 +30,7 @@ h1 {
     max-width: 800px;
     margin: 10px auto;
     padding: 15px;
-    background: rgba(245, 241, 241, 0.5);
+    background: rgba(255, 253, 253, 0.459);
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
@@ -66,7 +66,7 @@ h1 {
     font-size: 17px;
     font-weight: bold;
     color: #ffeb3b;
-    background: rgba(255, 87, 34, 0.8);
+    background: rgba(255, 86, 34, 0.932);
     padding: 4px 12px;
     border-radius: 10px;
     display: inline-block;
@@ -74,10 +74,10 @@ h1 {
 }
 
 #timer-message {
-    font-size: 17px;
+    font-size: 18px;
     font-family: 'Comic Sans MS', cursive, sans-serif;
     font-weight: bold;
-    color: #e73737;
+    color: #000000;
 }
 
 #timer-message img {
@@ -90,10 +90,10 @@ h1 {
 
 /* === NUMBER BUTTONS (RIGHT SIDE) === */
 .number-buttons {
-    flex: 1;
+    flex: 2;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 6px;
+    gap: 10px;
     justify-content: center;
     
 }
@@ -102,7 +102,7 @@ h1 {
     height: 45px;
     font-size: 17px;
     font-weight: bold;
-    background: linear-gradient(135deg, #dd78b3, #975bc0);
+    background: linear-gradient(135deg, #978035, #f3cc1cd7);
     color: white;
     border: none;
     border-radius: 50%;
@@ -112,13 +112,13 @@ h1 {
 }
 
 .num-btn:hover {
-    background: linear-gradient(135deg, #51369c, #917deb);
+    background: linear-gradient(135deg, #ece250, #ac9826);
     transform: scale(1.1);
 }
 
 /* === FEEDBACK MESSAGE === */
 #feedback {
-    font-size: 24px;
+    font-size: 23px;
     font-family: 'Comic Sans MS', cursive, sans-serif;
     color: #000000;
     font-weight: bold;
@@ -151,13 +151,12 @@ h1 {
     font-size: 22px;
     font-weight: bold;
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    color: #e0cd1c; /* Bright yellow */
-    text-shadow: 2px 2px #ff9800; /* Orange shadow for better visibility */
+    color: #fafafaef; /* Bright yellow */
     margin-bottom: 10px;
     display: inline-block;
-    background: rgba(37, 22, 104, 0.5); /* Slight dark background */
+    background: rgba(95, 95, 93, 0.5); /* Slight dark background */
     padding: 8px 2px;
-    border-radius: 10px;
+    border-radius: 8px;
    
 }
 
@@ -171,7 +170,7 @@ h1 {
     font-size: 20px;
     font-weight: bold;
     color: red;
-    background: rgba(202, 171, 33, 0.2);
+    background: rgba(255, 255, 255, 0.363);
     padding-inline: 15px;
     border-radius: 8px;
     display: inline-block;
@@ -184,7 +183,6 @@ h1 {
 }
 
 /* === RESPONSIVE DESIGN === */
-
 /* Tablet view */
 @media (max-width: 768px) {
     h1 {
@@ -287,7 +285,7 @@ h1 {
     padding: 10px 11px;
     font-size: 15px;
     font-weight: bold;
-    background: linear-gradient(135deg, #cc692f, #ff5722);
+    background: linear-gradient(135deg, #e65100, #d84315);
     color: white;
     border: none;
     border-radius: 8px;
@@ -297,7 +295,6 @@ h1 {
 }
 
 .back-home-btn:hover {
-    background: linear-gradient(135deg, #e65100, #d84315);
     transform: scale(1.1);
 }
 
@@ -329,23 +326,28 @@ h1 {
     position: absolute;
     top: 25px;
     right: 24px;
-    font-size: 24px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 22px;
     font-weight: bold;
-    color: #222220;
-    background: rgba(245, 244, 240, 0.8);
-    padding: 0px 28px;
+    color: #000000;
+    background: rgb(255, 255, 255);
+    padding: 0px 35px;
     border-radius: 15px;
     display: flex;
     align-items: center;
+    margin-top: 18px;
+    margin-right: 30px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+    
 }
 
 /* === Restart Button === */
-#restart-btn {
+#restart-btn{
     display: none;/* Make it appear next to the Back to Home button */
     padding: 10px 20px;
     font-size: 15px;
     font-weight: bold;
-    background: linear-gradient(135deg, #cc692f, #ff5722);
+    background: linear-gradient(135deg, #e65100, #d84315);
     color: white;
     border: none;
     border-radius: 8px;
@@ -357,6 +359,21 @@ h1 {
 
 /* Restart Button Hover Effect */
 #restart-btn:hover {
-    background: linear-gradient(135deg, #e65100, #d84315);
     transform: scale(1.1);
+}
+
+#skip-btn {
+    background-color: #fd4242; /* Yellow background */
+    color: #ffffff; /* White font color */
+    border: none;
+    padding: 10px 18px;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 28px; /* Adds space between the timer and the skip button */
+}
+
+#skip-btn:hover {
+    background-color: #d43209; /* Darker yellow on hover */
 }

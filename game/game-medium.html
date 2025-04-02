@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🍌 Mystery Banana Game - Medium Level 🍌</title>
-    <link rel="stylesheet" href="game.css">
+    <title>🍌 Mystery Banana Game - Medium 🍌</title>
+    <link rel="stylesheet" href="../css/game.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <h1> Mystery Banana Game (Medium Level) </h1>
+    <h1> Mystery Banana Game - Medium </h1>
 
     <!-- Score Display -->
     <div class="score-container">
@@ -17,7 +17,7 @@
 
     <!-- Monkey Animation -->
     <div class="monkey-container">
-        <img id="monkey" src="../assets/images/approval.png" alt="Monkey" class="idle">
+        <img id="monkey" src="../images/approval.png" alt="Monkey" class="idle">
     </div>
 
     <!-- Lives Display -->
@@ -31,13 +31,9 @@
         <div class="puzzle-container">
             <img id="puzzle-image" src="" alt="Puzzle loading...">
             <p id="timer-message">
-                <img src="../assets/images/timer.png" alt="Timer Icon"> Time Left: <span id="timer">30</span> sec
-            </p>
-            <p>
-                <button id="skip-btn" onclick="skipPuzzle()">
-                    <i class="fas fa-redo"></i> Skip
-                </button>
-            </p>
+                <img src="../images/timer.png" alt="Timer Icon"> Time Left: <span id="timer">30</span> sec 
+                 <span button id="skip-btn" onclick="skipPuzzle()">
+                    <i class="fas fa-redo"></i> Skip</span></p>
         </div>
 
         <!-- Answer Section -->
@@ -62,13 +58,13 @@
                 <!-- Restart Button (Hidden initially) -->
                 <button id="restart-btn" onclick="restartGame()" style="display:none;">🔄 Restart</button>
                 <!-- Back to Home Button -->
-                <button class="back-home-btn" onclick="goBackToDashboard()">⬅ Back to Home</button>
+                <button class="back-home-btn" onclick="goBackToDashboard()">Back to Home</button>
             </div>
         </div>
     </div>
 
     <!-- JavaScript -->
-    <script src="game.js"></script>
+    <script src="../js/game.js"></script>
     <script>
         function goBackToDashboard() {
     if (!gameOver) {
