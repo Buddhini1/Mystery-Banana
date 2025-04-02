@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banana Quest - Dashboard</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="dashboard-container">
@@ -52,7 +52,7 @@
         });
 
         function fetchUserScore(userId) {
-            fetch(`game/get_score.php?user_id=${userId}`)
+            fetch(`php/get_score.php?user_id=${userId}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.status === "success") {
