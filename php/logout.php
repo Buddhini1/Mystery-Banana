@@ -1,14 +1,11 @@
 <?php
+session_start();  // VIRTUAL IDENTITY:Start the session to manage user authentication
 
-// Database configuration settings
-$host = "localhost";
-$user = "root";  
-$password = "";  
-$database = "banana_game";
+// Destroy the session
+session_unset();
+session_destroy();
 
-$conn = new mysqli($host, $user, $password, $database);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// Redirect to login page after logout
+header("Location: ../login.html");
+exit(); // SECURITY: Prevent further script execution
 ?>

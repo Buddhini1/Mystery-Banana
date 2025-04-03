@@ -16,7 +16,7 @@
 
     <!--Monkey Animation(Event-Driven Programming)-->
     <div class="monkey-container">
-        <img id="monkey" src="assets/images/approval.png" alt="Monkey" class="idle">
+        <img id="monkey" src="../images/approval.png" alt="Monkey" class="idle">
     </div>
 
     <!-- Lives Display -->
@@ -67,7 +67,7 @@
     if (!gameOver) {
         updateScoreInDB(); // INTEROPERABILITY: Score update API call
         
-        // Delay redirection slightly to ensure the score update request is sent
+        // Delay redirection slightly to ensure the score update request is sent. 
         setTimeout(() => {
             window.location.href = "../dashboard.html";
         }, 500); // Wait for 500ms before redirecting

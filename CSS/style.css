@@ -3,7 +3,7 @@
 
 body {
     font-family: 'Baloo 2', cursive;  /* Apply the imported font */
-    background: url('assets/images/bg.jpg') no-repeat center center fixed;
+    background: url('../images/bg.jpg') no-repeat center center fixed;
     background-size: cover;  /* Responsive background */
     text-align: center;
     color: rgb(243, 243, 243);
