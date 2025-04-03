@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
     // EVENT-DRIVEN: Form submission handling for both registration and login
-    
      // Register Form Handling
      const registerForm = document.getElementById("register-form");
  
@@ -15,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
              const confirmPassword = document.getElementById("confirm-password").value.trim();
  
              // VIRTUAL IDENTITY:Password Validation Regex: At least 8 characters, one uppercase, one lowercase, and one number
-             const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+             const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
  
              // Check if passwords match
              if (password !== confirmPassword) {
