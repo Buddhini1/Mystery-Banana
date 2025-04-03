@@ -76,7 +76,7 @@ function updateScoreInDB() {
     .catch(error => console.error("Score update request failed:", error));
 }
 
-// Handle user answer
+// Handle user answer with visual feedback
 function handleAnswerClick(event) {
     if (gameOver) return; // Prevent answering after game over
 
@@ -149,3 +149,6 @@ function initializeGame() {
 
 // Ensure script loads after DOM is ready
 document.addEventListener("DOMContentLoaded", initializeGame);
+
+
+// Reference - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch

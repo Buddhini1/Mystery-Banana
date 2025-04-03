@@ -1,18 +1,17 @@
 <?php
 
 session_start(); // VIRTUAL IDENTITY: Start session to manage user authentication
-include 'db.php'; // INTEROPERABILITY: Database connection for data persistence
+include 'db.php'; 
 
-// EVENT-DRIVEN: Handle POST request (triggered by form submission)
+// EVENT-DRIVEN:Handle POST request (triggered by form submission)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $email = $_POST['email'];
     
     // VIRTUAL IDENTITY: Secure password hashing
-    // Reference: https://www.php.net/manual/en/function.password-hash.php
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); //Reference:https://www.php.net/manual/en/function.password-hash.php
 
-    // Check if email exists (INTEROPERABILITY: Database query)
+    // Check if email exists (INTEROPERABILITY:Database query)
     $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();

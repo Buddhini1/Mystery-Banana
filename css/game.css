@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap');
-/* === Import Cartoonish Font === */
+/* Import Cartoonish Font */
 body {
     font-family: 'Baloo 2', cursive;
-    background: url('../assets/images/bg.jpg') no-repeat center center fixed;
+    background: url('assets/images/bg.jpg') no-repeat center center fixed;
     background-size: cover;
     text-align: center;
     color: rgb(223, 223, 223);
@@ -11,7 +11,7 @@ body {
     min-height: 100vh;
 }
 
-/* === GAME TITLE === */
+/* GAME TITLE */
 h1 {
     font-size: 50px;
     margin-top: 5px;
@@ -20,7 +20,7 @@ h1 {
     text-shadow: 4px 4px #ff9800;
 }
 
-/* === GAME CONTAINER === */
+/* GAME CONTAINER */
 .game-container {
     display: flex;
     justify-content: space-between;
@@ -35,7 +35,7 @@ h1 {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* === MONKEY CHARACTER === */
+/* MONKEY CHARACTER */
 .monkey-container {
     display: flex;
     justify-content: center;
@@ -47,7 +47,7 @@ h1 {
     transition: transform 0.5s ease-in-out;
 }
 
-/* === PUZZLE IMAGE (LEFT SIDE) === */
+/* PUZZLE IMAGE (LEFT SIDE) */
 .puzzle-container {
     flex: 1;
 }
@@ -60,7 +60,7 @@ h1 {
     transition: opacity 0.3s ease;
 }
 
-/* === TIMER === */
+/* Timer */
 #timer {
     font-family: 'Comic Sans MS', cursive, sans-serif;
     font-size: 17px;
@@ -88,7 +88,7 @@ h1 {
     margin-right: 5px;
 }
 
-/* === NUMBER BUTTONS (RIGHT SIDE) === */
+/* Number Buttons (right side) */
 .number-buttons {
     flex: 2;
     display: grid;
@@ -116,7 +116,7 @@ h1 {
     transform: scale(1.1);
 }
 
-/* === FEEDBACK MESSAGE === */
+/* Feedback Message */
 #feedback {
     font-size: 23px;
     font-family: 'Comic Sans MS', cursive, sans-serif;
@@ -126,7 +126,7 @@ h1 {
     margin-bottom: 0px;
 }
 
-/* === MONKEY ANIMATIONS === */
+/* Monkey Animation */
 .jump {
     animation: jump 0.6s ease-in-out;
 }
@@ -174,7 +174,6 @@ h1 {
     padding-inline: 15px;
     border-radius: 8px;
     display: inline-block;
-   /* margin-bottom: 5px;    (optional space between heart and containers) */ 
 }
 
 #lives-count {
@@ -182,7 +181,8 @@ h1 {
     font-weight: bold;
 }
 
-/* === RESPONSIVE DESIGN === */
+/* RESPONSIVE DESIGN (https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design) */ 
+
 /* Tablet view */
 @media (max-width: 768px) {
     h1 {
@@ -271,7 +271,7 @@ h1 {
     }
 }
 
-/* === Back to Home Button Container === */
+/* Back to Home Button Container */
 .back-home-container {
     width: 100%;
     display: flex;
@@ -280,7 +280,7 @@ h1 {
     padding-right: 15%;
 }
 
-/* === Back to Home Button Style === */
+/* Back to Home Button Style */
 .back-home-btn {
     padding: 10px 11px;
     font-size: 15px;
@@ -298,7 +298,7 @@ h1 {
     transform: scale(1.1);
 }
 
-/* === Responsive Adjustment === */
+/* Responsive Adjustment */
 @media (max-width: 768px) {
     .back-home-container {
         justify-content: center; /* Centers on tablets */
@@ -341,7 +341,7 @@ h1 {
     
 }
 
-/* === Restart Button === */
+/* Restart Button */
 #restart-btn{
     display: none;/* Make it appear next to the Back to Home button */
     padding: 10px 20px;

@@ -88,3 +88,4 @@ document.addEventListener("DOMContentLoaded", function () {
      }
  });
  
+ // Reference - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API

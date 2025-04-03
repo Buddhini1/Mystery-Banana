@@ -59,7 +59,7 @@ function fetchLeaderboard() {
                 leaderboardBody.appendChild(row);
             });
         })
-        .catch(error => console.error("Error fetching leaderboard:", error)); // Error handling
+        .catch(error => console.error("Error fetching leaderboard:", error));
 }
 
 // Redirect to dashboard
@@ -69,3 +69,5 @@ function goBack() {
 
 // Call the function when the page loads
 window.onload = checkUserSession;
+
+// To fetch API refered -https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API

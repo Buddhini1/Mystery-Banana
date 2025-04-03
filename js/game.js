@@ -79,7 +79,8 @@ function updateScoreInDB() {
         }
     })
     .catch(error => console.error("Score update request failed:", error));
-}
+}   
+// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 
 // Monkey Jump Animation
 function monkeyJump() {
@@ -141,7 +142,7 @@ function restartGame() {
     startTimer(30); // Start the timer again
 }
 
-// Timer function (works with existing HTML timer)
+// Timer function 
 function startTimer(seconds) {
     timeRemaining = seconds;
     document.getElementById("timer").textContent = timeRemaining; // Display the initial time in the timer element
@@ -196,3 +197,6 @@ function initializeGame() {
 
 // Ensure script loads after the DOM is ready
 document.addEventListener("DOMContentLoaded", initializeGame);
+
+
+// fetch API - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
