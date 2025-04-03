@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍌 Mystery Banana Game 🍌</title>
+    <link rel="stylesheet" href="../css/game.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <h1> Mystery Banana Game - Hard </h1>
+    
+    <div class="score-container">
+        <p>Score: <span id="score">0</span></p>
+    </div>
+
+    <!-- Monkey Animation -->
+    <div class="monkey-container">
+        <img id="monkey" src="../images/approval.png" alt="Monkey" class="idle">
+    </div>
+
+    <!-- Lives Display -->
+    <div class="lives-container">
+        <div id="lives-container"></div> 
+    </div>
+
+    <!-- Game Content (Event-Driven) -->
+    <div class="game-container">
+        <!-- Puzzle with timer -->
+        <div class="puzzle-container">
+            <img id="puzzle-image" src="" alt="Puzzle loading...">
+            <p id="timer-message">
+                <img src="../images/timer.png" alt="Timer Icon"> Time Left: <span id="timer">30</span> sec
+            </p>
+        </div>
+
+        <!-- Answer Section -->
+        <div class="answer-section">
+            <p id="feedback"></p>
+            <p id="select-text">🎯 Select Your Answer:</p>
+            <div id="buttons-container">
+                <div class="number-buttons">
+                    <button class="num-btn">0</button>
+                    <button class="num-btn">1</button>
+                    <button class="num-btn">2</button>
+                    <button class="num-btn">3</button>
+                    <button class="num-btn">4</button>
+                    <button class="num-btn">5</button>
+                    <button class="num-btn">6</button>
+                    <button class="num-btn">7</button>
+                    <button class="num-btn">8</button>
+                    <button class="num-btn">9</button>
+                </div>
+            </div>
+            <div class="back-home-container">
+                <button id="restart-btn" onclick="restartGame()">🔄 Restart</button>
+                <!-- Back to Home Button -->
+                <button class="back-home-btn" onclick="goBackToDashboard()">Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/game.js"></script>
+    <script>
+        function goBackToDashboard() {
+    if (!gameOver) {
+        updateScoreInDB();// INTEROPERABILITY: Score update API call
+        
+        // Delay redirection slightly to ensure the score update request is sent
+        setTimeout(() => {
+            window.location.href = "../dashboard.html";
+        }, 500); // Wait for 500ms before redirecting
+    } else {
+        // If game is over, just redirect without updating score
+        window.location.href = "../dashboard.html";
+    }
+}
+    </script>
+</body>
+</html>

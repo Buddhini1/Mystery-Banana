@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Level - Banana Quest</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="level-container">
+        <h1>Select Your Level</h1>
+
+         <!-- Difficulty Level Selection (Event-Driven Programming) -->
+        <button id="easyBtn" onclick="startGame('easy')">🍃 Easy</button>
+        <button id="mediumBtn" onclick="startGame('medium')">🔥 Medium</button>
+        <button id="hardBtn" onclick="startGame('hard')">💀 Hard</button>
+
+        <button onclick="goBack()">⬅ Back to Dashboard</button>
+    </div>
+
+    <script>
+        // Check if the user is logged in
+        function checkUserSession() {
+            fetch('php/check_session.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'error') {
+                        // If session is expired, redirect to login page
+                        alert('Session expired. Please log in again.');
+                        window.location.href = 'login.html'; // Redirect to the login page
+                    } else {
+                        // Session is valid, allow the user to play
+                        console.log('User is logged in, ID:', data.user_id);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error checking session:', error);
+                    alert('An error occurred while checking your session.');
+                    window.location.href = 'login.html'; // Redirect to login on error
+                });
+        }
+
+        // Start the game with the selected level
+        function startGame(level) {
+            window.location.href = `game/game-${level}.html`; // Redirect to the selected game level inside the game folder
+        }
+
+        // Go back to the dashboard
+        function goBack() {
+            window.location.href = "dashboard.html"; // Back to the dashboard
+        }
+
+        // Call session check when the page loads
+        window.onload = checkUserSession;
+    </script>
+</body>
+</html>

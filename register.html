@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - Mystery Banana Game</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="cs/reg.css">
+    <title>Login - Mystery Banana Game</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reg.css">
 </head>
 <body>
-    <div class="register-container">
-        <h2>Register</h2>
-        <form id="register-form">
-            <label for="name">Name:</label>
-            <input type="text" id="register-name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="register-email" required>
+    <div class="login-container">
+        <h2>Login</h2>
+        <p class="tagline">Welcome to the Mystery Banana Game!</p>
+        <!-- Event-Driven: Form submission handled by reg.js -->
+        <form id="login-form">
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" name="email" required>
             
-            <label for="password">Password:</label>
-            <input type="password" id="register-password" required>
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="password" required>
             
-            <button type="submit">Register</button>
+             <!-- EVENT-DRIVEN: Click triggers form submission -->
+            <button type="submit">Login</button>
         </form>
-        <p>Already have an account? <a href="index.html">Login here</a></p>
+        <p>New here? <a href="register.html">Register Now</a></p>
     </div>
-
-    <script src="script.js"></script>
+    
+    <!-- INTEROPERABILITY & VIRTUAL IDENTITY:reg.js will handle: 
+     API calls to login.php & Session management via cookies -->
+    <script src="js/reg.js"></script>
 </body>
 </html>

@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap');
+/*Import Cartoonish Font */
+
+body {
+    font-family: 'Baloo 2', cursive;  /* Apply the imported font */
+    background: url('../images/bg.jpg') no-repeat center center fixed;
+    background-size: cover;  /* Responsive background */
+    text-align: center;
+    color: rgb(243, 243, 243);
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 50px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    color: #ffeb3b;
+    text-shadow: 4px 4px #ff9800;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    background-color: #ff9800;
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+button:last-child {
+    background-color: #ff3b3b;
+}
+
+/* Dashboard, leaderboard & level containers */
+.dashboard-container, .leaderboard-container, .level-container{
+    width: 90%; /* Responsive width */
+    max-width: 500px;
+    background: rgba(0, 0, 0, 0.76);
+    padding: 20px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(209, 204, 204, 0.733);
+    text-align: center;
+}
+
+h1, h2 {
+    color: #ffeb3b;
+}
+
+.stats-container, .profile-container {
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.dashboard-container {
+    margin-top: 50px;  /* Positioning adjustment */
+}
+
+.profile-container, .dashboard-buttons {
+    margin-bottom: 20px;
+}
+
+/* Leaderboard Table Styling */
+
+/* https://www.w3.org/TR/css-tables-3/ */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    color: black;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+/* Table cells */
+th, td {
+    padding: 10px;
+    border: 1px solid white;
+}
+
+/* Table header */
+th {
+    background: #ff9800;
+    color: rgb(8, 8, 8);
+}
+
+
