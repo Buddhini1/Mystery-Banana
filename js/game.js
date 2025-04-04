@@ -105,7 +105,7 @@ function handleAnswerClick(event) {
         score += 10;
         updateScoreDisplay();
         
-        // ✅ Monkey jumps when correct
+        // Monkey jumps when correct
         monkeyJump();
 
         setTimeout(() => {
