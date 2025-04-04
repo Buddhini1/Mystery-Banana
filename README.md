@@ -47,7 +47,7 @@ $password = "";
 $database = "mysterybanana";
 $conn = new mysqli($host, $user, $password, $database);
 ```
-Run the game by accessing register.html in your browser.
+Run the game by accessing login.html in your browser.
 
 ## References
 - Math Puzzle API: Marc Conrad’s Math Puzzle API
